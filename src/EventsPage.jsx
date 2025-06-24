@@ -18,7 +18,6 @@ const categoryColorVariants = {
   'Others': ['#9775fa', '#d0bfff', '#ff8787'],
 };
 
-// Assign color based on category and event order
 const getColorForEvent = (event, allEvents) => {
   const sameCategoryEvents = allEvents.filter(e => e.category === event.category);
   const index = sameCategoryEvents.findIndex(e => e.id === event.id);
@@ -90,8 +89,8 @@ const EventsPage = () => {
     e.preventDefault();
     const { title, date, startTime, endTime, category } = formData;
 
-    const start = new Date(`${date}T${startTime}:00`);
-    const end = new Date(`${date}T${endTime}:00`);
+    const start = new Date(`${date}T${startTime || '09:00'}:00`);
+    const end = new Date(`${date}T${endTime || '10:00'}:00`);
 
     const newEvent = {
       id: Date.now(),
@@ -103,7 +102,7 @@ const EventsPage = () => {
 
     try {
       await axios.post('http://localhost:5000/events', newEvent);
-      await fetchEvents(); // ✅ refresh from backend instead of local add
+      await fetchEvents();
       closeModal();
       setShowSuccess(true);
       setShowConfetti(true);
@@ -219,6 +218,7 @@ const EventsPage = () => {
                       value={formData.startTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
+                      required
                     />
                     <input
                       type="time"
@@ -226,6 +226,7 @@ const EventsPage = () => {
                       value={formData.endTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
+                      required
                     />
                   </div>
                   <select

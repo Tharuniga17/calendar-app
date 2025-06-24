@@ -1,7 +1,5 @@
-
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import Footer from './Footer';
 import ReactCalendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './cal.css'; // Custom calendar styles
@@ -10,8 +8,8 @@ const Layout = () => {
   const location = useLocation().pathname;
   const [date, setDate] = useState(new Date());
 
-  // Set default or hardcoded email if login is removed
-  const userEmail = 'tharunigam.22ece@kongu.edu      ';
+  // Set default or hardcoded email
+  const userEmail = 'tharunigam.22ece@kongu.edu';
 
   const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(userEmail)}`;
 
@@ -83,9 +81,6 @@ const Layout = () => {
         <main className="flex-1 p-6">
           <Outlet />
         </main>
-        <div className="border-t border-gray-200 p-4 bg-white rounded-b-3xl">
-          <Footer />
-        </div>
       </div>
     </div>
   );
