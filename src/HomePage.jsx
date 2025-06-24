@@ -61,9 +61,8 @@ const HomePage = () => {
           Welcome to My Calendar 👋
         </h1>
         <p className="italic text-lg text-slate-600 mt-4">
-  “Every day is a fresh page in your story, write something amazing”
-</p>
-
+          “Every day is a fresh page in your story, write something amazing”
+        </p>
       </motion.div>
 
       {/* Stats */}

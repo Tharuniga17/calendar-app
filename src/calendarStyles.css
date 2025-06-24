@@ -1,3 +1,54 @@
+
+
+.rbc-calendar {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.rbc-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.rbc-toolbar button {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin: 0 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.rbc-toolbar button:hover {
+  background: #6d28d9;
+}
+
+.rbc-event {
+  background-color: #c4b5fd !important;
+  border-radius: 6px;
+  padding: 4px;
+  color: #1f2937;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.rbc-month-view {
+  border: none;
+}
+
+.rbc-header {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+=======
 /* src/calendarStyles.css */
 
 .rbc-calendar {
@@ -48,3 +99,4 @@
   background-color: #f3f4f6;
   font-weight: bold;
 }
+

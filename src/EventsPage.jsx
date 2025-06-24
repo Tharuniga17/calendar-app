@@ -101,8 +101,6 @@ const EventsPage = () => {
       category,
     };
 
-    console.log("New Event:", newEvent);
-
     try {
       await axios.post('http://localhost:5000/events', newEvent);
       await fetchEvents(); // ✅ refresh from backend instead of local add
@@ -221,7 +219,6 @@ const EventsPage = () => {
                       value={formData.startTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
-                      
                     />
                     <input
                       type="time"
@@ -229,7 +226,6 @@ const EventsPage = () => {
                       value={formData.endTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
-                      
                     />
                   </div>
                   <select
