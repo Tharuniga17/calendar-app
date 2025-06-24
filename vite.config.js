@@ -7,5 +7,8 @@ export default defineConfig({
     proxy: {
       '/events': 'http://localhost:5000' // ✅ Used for local API (json-server)
     }
+  },
+  build: {
+    outDir: 'dist'  // 🔧 Ensures the build output goes to "dist"
   }
 });
