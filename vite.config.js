@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-   base: '/Calender-react/', 
+  // base: '/Calender-react/', 
   server: {
     proxy: {
       '/events': 'http://localhost:5000'
