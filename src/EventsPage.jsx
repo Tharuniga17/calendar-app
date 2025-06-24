@@ -218,7 +218,7 @@ const EventsPage = () => {
                       value={formData.startTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
-                      required
+                   
                     />
                     <input
                       type="time"
@@ -226,7 +226,7 @@ const EventsPage = () => {
                       value={formData.endTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
-                      required
+                     
                     />
                   </div>
                   <select
