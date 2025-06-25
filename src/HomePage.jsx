@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('http://localhost:5000/events');
+        const response = await fetch('https://calendar-app-3-im0n.onrender.com/events');
         const data = await response.json();
         setEvents(data);
 
