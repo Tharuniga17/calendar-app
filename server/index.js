@@ -6,9 +6,13 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-
 app.use(cors());
 app.use(express.json());
+
+// ✅ Added only this route below
+app.get('/', (req, res) => {
+  res.send('✅ Backend is live!');
+});
 
 // Read events
 app.get('/events', (req, res) => {
