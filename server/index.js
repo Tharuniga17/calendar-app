@@ -32,4 +32,4 @@ app.post('/events', (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log(`✅ Server running at http://localhost:${PORT}/events`));
+app.listen(PORT, () => console.log(`✅ Server running at http://localhost:5000/events`));
