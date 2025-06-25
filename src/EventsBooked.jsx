@@ -19,7 +19,7 @@ const OrderBooked = () => {
   // Fetch events from JSON server
   const fetchEvents = async () => {
     try {
-      const res = await axios.get('https://tharunigam-calendar-app.vercel.app/home');
+      const res = await axios.get('https://calendar-app-3-im0n.onrender.com/events');
       setEvents(res.data);
     } catch (err) {
       console.error("Failed to fetch events", err);
