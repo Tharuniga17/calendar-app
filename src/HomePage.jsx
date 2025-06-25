@@ -8,18 +8,86 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
+      const staticEvents = [
+  {
+  id: 1004,
+  title: '📘 Weekly Coding Class',
+  start: new Date(2025, 5, 28, 9, 30),
+  end: new Date(2025, 5, 28, 11, 0),
+  category: 'Regular Class',
+},
+{
+  id: 1005,
+  title: '🎂 Riya\'s Birthday',
+  start: new Date(2025, 5, 29, 0, 0),
+  end: new Date(2025, 5, 29, 23, 59),
+  category: 'Birthday Party',
+},
+{
+  id: 1006,
+  title: '🛠️ AI Workshop',
+  start: new Date(2025, 5, 8, 13, 0),
+  end: new Date(2025, 5, 8, 16, 30),
+  category: 'Workshop',
+},
+{
+  id: 1007,
+  title: '⭐ Team Review Meeting',
+  start: new Date(2025, 5, 18, 15, 0),
+  end: new Date(2025, 5, 18, 16, 0),
+  category: 'Important Event',
+},
+{
+  id: 1008,
+  title: '📁 Budget Planning',
+  start: new Date(2025, 6, 3, 10, 0),
+  end: new Date(2025, 6, 3, 11, 0),
+  category: 'Others',
+},
+
+  {
+    id: 1001,
+    title: '🎉 Welcome Party',
+    start: new Date(2025, 6, 1, 18, 0),
+    end: new Date(2025, 6,1, 20, 0),
+    category: 'Birthday Party',
+  },
+  {
+    id: 1002,
+    title: '🚀 Project Kickoff',
+    start: new Date(2025, 5, 5, 10, 30),
+    end: new Date(2025, 5, 5, 12, 0),
+    category: 'Important Event',
+  },
+  {
+    id: 1003,
+    title: '📚 React Workshop',
+    start: new Date(2025, 5, 7, 14, 0),
+    end: new Date(2025, 5, 7, 16, 0),
+    category: 'Workshop',
+  },
+  {
+    id: 1003,
+    title: '📚 React Workshop',
+    start: new Date(2025, 6, 7, 14, 0),
+    end: new Date(2025, 6, 7, 16, 0),
+    category: 'Workshop',
+  },
+];
+
       try {
         const response = await fetch('https://calendar-app-3-im0n.onrender.com/events');
         const data = await response.json();
-        setEvents(data);
+        const combinedEvents = [...staticEvents, ...data];
+        setEvents(combinedEvents);
 
         const today = new Date().toISOString().split('T')[0];
 
-        const todayList = data.filter(event =>
+        const todayList = combinedEvents.filter(event =>
           new Date(event.start).toISOString().split('T')[0] === today
         );
 
-        const upcomingList = data
+        const upcomingList = combinedEvents
           .filter(event =>
             new Date(event.start).toISOString().split('T')[0] > today
           )
@@ -30,6 +98,9 @@ const HomePage = () => {
         setUpcomingEvents(upcomingList);
       } catch (err) {
         console.error('Error fetching events:', err);
+        setEvents(staticEvents);
+        setTodayEvents([]);
+        setUpcomingEvents(staticEvents.slice(0, 3));
       }
     };
 
@@ -61,9 +132,8 @@ const HomePage = () => {
           Welcome to My Calendar 👋
         </h1>
         <p className="italic text-lg text-slate-600 mt-4">
-  “Every day is a fresh page in your story, write something amazing”
-</p>
-
+          “Every day is a fresh page in your story, write something amazing”
+        </p>
       </motion.div>
 
       {/* Stats */}
@@ -109,4 +179,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
