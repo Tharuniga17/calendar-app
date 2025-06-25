@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
 import { Dialog, Transition } from '@headlessui/react';
@@ -16,13 +15,81 @@ const OrderBooked = () => {
   });
   const [deleteSuccess, setDeleteSuccess] = useState(false);
 
-  // Fetch events from JSON server
+  // ✅ Fetch events from JSON server and merge with static defaults
   const fetchEvents = async () => {
+    const staticEvents = [
+  {
+  id: 1004,
+  title: '📘 Weekly Coding Class',
+  start: new Date(2025, 5, 28, 9, 30),
+  end: new Date(2025, 5, 28, 11, 0),
+  category: 'Regular Class',
+},
+{
+  id: 1005,
+  title: '🎂 Riya\'s Birthday',
+  start: new Date(2025, 5, 29, 0, 0),
+  end: new Date(2025, 5, 29, 23, 59),
+  category: 'Birthday Party',
+},
+{
+  id: 1006,
+  title: '🛠️ AI Workshop',
+  start: new Date(2025, 5, 8, 13, 0),
+  end: new Date(2025, 5, 8, 16, 30),
+  category: 'Workshop',
+},
+{
+  id: 1007,
+  title: '⭐ Team Review Meeting',
+  start: new Date(2025, 5, 18, 15, 0),
+  end: new Date(2025, 5, 18, 16, 0),
+  category: 'Important Event',
+},
+{
+  id: 1008,
+  title: '📁 Budget Planning',
+  start: new Date(2025, 6, 3, 10, 0),
+  end: new Date(2025, 6, 3, 11, 0),
+  category: 'Others',
+},
+
+  {
+    id: 1001,
+    title: '🎉 Welcome Party',
+    start: new Date(2025, 6, 1, 18, 0),
+    end: new Date(2025, 6,1, 20, 0),
+    category: 'Birthday Party',
+  },
+  {
+    id: 1002,
+    title: '🚀 Project Kickoff',
+    start: new Date(2025, 5, 5, 10, 30),
+    end: new Date(2025, 5, 5, 12, 0),
+    category: 'Important Event',
+  },
+  {
+    id: 1003,
+    title: '📚 React Workshop',
+    start: new Date(2025, 5, 7, 14, 0),
+    end: new Date(2025, 5, 7, 16, 0),
+    category: 'Workshop',
+  },
+  {
+    id: 1003,
+    title: '📚 React Workshop',
+    start: new Date(2025, 6, 7, 14, 0),
+    end: new Date(2025, 6, 7, 16, 0),
+    category: 'Workshop',
+  },
+];
+
     try {
       const res = await axios.get('https://calendar-app-3-im0n.onrender.com/events');
-      setEvents(res.data);
+      setEvents([...staticEvents, ...res.data]);
     } catch (err) {
       console.error("Failed to fetch events", err);
+      setEvents(staticEvents);
     }
   };
 
@@ -30,7 +97,6 @@ const OrderBooked = () => {
     fetchEvents();
   }, []);
 
-  // Open edit modal
   const openModal = (event) => {
     const startDate = new Date(event.start);
     const endDate = new Date(event.end);
@@ -55,7 +121,6 @@ const OrderBooked = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Update event
   const handleUpdate = async (e) => {
     e.preventDefault();
     const { id, title, date, startTime, endTime, category } = formData;
@@ -76,13 +141,12 @@ const OrderBooked = () => {
     }
   };
 
-  // Delete event
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this event?");
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/events/1750756084308`);
+      await axios.delete(`http://localhost:5000/events/${id}`);
       setEvents(events.filter(e => e.id !== id));
       setDeleteSuccess(true);
       setTimeout(() => setDeleteSuccess(false), 3000);
