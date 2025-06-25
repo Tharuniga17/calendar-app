@@ -18,6 +18,74 @@ const categoryColorVariants = {
   'Others': ['#9775fa', '#d0bfff', '#ff8787'],
 };
 
+// ✅ Default Static Events
+const defaultEvents = [
+  {
+  id: 1004,
+  title: '📘 Weekly Coding Class',
+  start: new Date(2025, 5, 28, 9, 30),
+  end: new Date(2025, 5, 28, 11, 0),
+  category: 'Regular Class',
+},
+{
+  id: 1005,
+  title: '🎂 Riya\'s Birthday',
+  start: new Date(2025, 5, 29, 0, 0),
+  end: new Date(2025, 5, 29, 23, 59),
+  category: 'Birthday Party',
+},
+{
+  id: 1006,
+  title: '🛠️ AI Workshop',
+  start: new Date(2025, 5, 8, 13, 0),
+  end: new Date(2025, 5, 8, 16, 30),
+  category: 'Workshop',
+},
+{
+  id: 1007,
+  title: '⭐ Team Review Meeting',
+  start: new Date(2025, 5, 18, 15, 0),
+  end: new Date(2025, 5, 18, 16, 0),
+  category: 'Important Event',
+},
+{
+  id: 1008,
+  title: '📁 Budget Planning',
+  start: new Date(2025, 6, 3, 10, 0),
+  end: new Date(2025, 6, 3, 11, 0),
+  category: 'Others',
+},
+
+  {
+    id: 1001,
+    title: '🎉 Welcome Party',
+    start: new Date(2025, 6, 1, 18, 0),
+    end: new Date(2025, 6,1, 20, 0),
+    category: 'Birthday Party',
+  },
+  {
+    id: 1002,
+    title: '🚀 Project Kickoff',
+    start: new Date(2025, 5, 5, 10, 30),
+    end: new Date(2025, 5, 5, 12, 0),
+    category: 'Important Event',
+  },
+  {
+    id: 1003,
+    title: '📚 React Workshop',
+    start: new Date(2025, 5, 7, 14, 0),
+    end: new Date(2025, 5, 7, 16, 0),
+    category: 'Workshop',
+  },
+  {
+    id: 1003,
+    title: '📚 React Workshop',
+    start: new Date(2025, 6, 7, 14, 0),
+    end: new Date(2025, 6, 7, 16, 0),
+    category: 'Workshop',
+  },
+];
+
 const getColorForEvent = (event, allEvents) => {
   const sameCategoryEvents = allEvents.filter(e => e.category === event.category);
   const index = sameCategoryEvents.findIndex(e => e.id === event.id);
@@ -58,9 +126,10 @@ const EventsPage = () => {
         end: new Date(event.end),
       }));
       console.log("Fetched Events:", formatted);
-      setEvents(formatted);
+      setEvents([...defaultEvents, ...formatted]); // ✅ Merge with static defaults
     } catch (err) {
       console.error('Error fetching events:', err);
+      setEvents(defaultEvents); // ✅ Fallback to static only
     }
   };
 
@@ -218,7 +287,6 @@ const EventsPage = () => {
                       value={formData.startTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
-                   
                     />
                     <input
                       type="time"
@@ -226,7 +294,6 @@ const EventsPage = () => {
                       value={formData.endTime}
                       onChange={handleInputChange}
                       className="w-full p-2 border border-purple-300 rounded"
-                     
                     />
                   </div>
                   <select
