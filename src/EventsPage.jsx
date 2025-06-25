@@ -51,7 +51,7 @@ const EventsPage = () => {
 
   const fetchEvents = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/events');
+      const res = await axios.get('https://calendar-app-3-im0n.onrender.com/events');
       const formatted = res.data.map(event => ({
         ...event,
         start: new Date(event.start),
@@ -101,7 +101,7 @@ const EventsPage = () => {
     };
 
     try {
-      await axios.post('http://localhost:5000/events', newEvent);
+      await axios.post('https://calendar-app-3-im0n.onrender.com/events', newEvent);
       await fetchEvents();
       closeModal();
       setShowSuccess(true);
