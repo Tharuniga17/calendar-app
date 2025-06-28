@@ -21,35 +21,35 @@ const categoryColorVariants = {
 // ✅ Default Static Events
 const defaultEvents = [
   {
-  id: 1004,
+  id: 1001,
   title: '📘 Weekly Coding Class',
   start: new Date(2025, 5, 28, 9, 30),
   end: new Date(2025, 5, 28, 11, 0),
   category: 'Regular Class',
 },
 {
-  id: 1005,
+  id: 1002,
   title: '🎂 Riya\'s Birthday',
   start: new Date(2025, 5, 29, 0, 0),
   end: new Date(2025, 5, 29, 23, 59),
   category: 'Birthday Party',
 },
 {
-  id: 1006,
+  id: 1003,
   title: '🛠️ AI Workshop',
   start: new Date(2025, 5, 8, 13, 0),
   end: new Date(2025, 5, 8, 16, 30),
   category: 'Workshop',
 },
 {
-  id: 1007,
+  id: 1004,
   title: '⭐ Team Review Meeting',
   start: new Date(2025, 5, 18, 15, 0),
   end: new Date(2025, 5, 18, 16, 0),
   category: 'Important Event',
 },
 {
-  id: 1008,
+  id: 1005,
   title: '📁 Budget Planning',
   start: new Date(2025, 6, 3, 10, 0),
   end: new Date(2025, 6, 3, 11, 0),
@@ -57,7 +57,7 @@ const defaultEvents = [
 },
 
   {
-    id: 1001,
+    id: 1006,
     title: '🎉 Welcome Party',
     start: new Date(2025, 6, 1, 18, 0),
     end: new Date(2025, 6,1, 20, 0),
@@ -71,14 +71,14 @@ const defaultEvents = [
     category: 'Important Event',
   },
   {
-    id: 1003,
+    id: 1007,
     title: '📚 React Workshop',
     start: new Date(2025, 5, 7, 14, 0),
     end: new Date(2025, 5, 7, 16, 0),
     category: 'Workshop',
   },
   {
-    id: 1003,
+    id: 1008,
     title: '📚 React Workshop',
     start: new Date(2025, 6, 7, 14, 0),
     end: new Date(2025, 6, 7, 16, 0),
