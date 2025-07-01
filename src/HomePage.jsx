@@ -8,7 +8,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const defaultEvents = [
+      const staticEvents = [
   {
   id: 1001,
   title: '📘 Weekly Coding Class',
