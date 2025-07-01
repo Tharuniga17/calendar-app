@@ -17,7 +17,7 @@ const OrderBooked = () => {
 
   // ✅ Fetch events from JSON server and merge with static defaults
   const fetchEvents = async () => {
-    const defaultEvents = [
+    const staticEvents = [
   {
   id: 1001,
   title: '📘 Weekly Coding Class',
