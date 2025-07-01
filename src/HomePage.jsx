@@ -8,33 +8,33 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const staticEvents = [
+      const defaultEvents = [
   {
   id: 1001,
   title: '📘 Weekly Coding Class',
-  start: new Date(2025, 5, 28, 9, 30),
-  end: new Date(2025, 5, 28, 11, 0),
+  start: new Date(2025, 7, 28, 9, 30),
+  end: new Date(2025, 7, 28, 11, 0),
   category: 'Regular Class',
 },
 {
   id: 1002,
   title: '🎂 Riya\'s Birthday',
-  start: new Date(2025, 5, 29, 0, 0),
-  end: new Date(2025, 5, 29, 23, 59),
+  start: new Date(2025, 7, 29, 0, 0),
+  end: new Date(2025, 7, 29, 23, 59),
   category: 'Birthday Party',
 },
 {
   id: 1003,
   title: '🛠️ AI Workshop',
-  start: new Date(2025, 5, 8, 13, 0),
-  end: new Date(2025, 5, 8, 16, 30),
+  start: new Date(2025, 7, 8, 13, 0),
+  end: new Date(2025, 7, 8, 16, 30),
   category: 'Workshop',
 },
 {
   id: 1004,
   title: '⭐ Team Review Meeting',
-  start: new Date(2025, 5, 18, 15, 0),
-  end: new Date(2025, 5, 18, 16, 0),
+  start: new Date(2025, 7, 18, 15, 0),
+  end: new Date(2025, 7, 18, 16, 0),
   category: 'Important Event',
 },
 {
